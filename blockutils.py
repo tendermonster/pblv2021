@@ -1,6 +1,8 @@
 import requests
 import os
 import json
+from blockchain import blockexplorer
+
 class BlockUtils():
     def __init__(self):
         self.parent = 'blocks'
@@ -26,12 +28,23 @@ class BlockUtils():
                 print("Could not write to disk")
                 return 1
 
-    def getBlock(self,block):
+#returns json representation of a block or all downloaded blocks
+    def getBlock(self,block=None):
         height = block
         try:
-            with open(f'blocks/{height}.json', 'r') as f:
-                return json.load(f)
+            if not block:
+                heights = sorted(self.local_blocks)
+                heights
+                blocks = []
+                for height in heights:
+                    with open(f'blocks/{height}.json', 'r') as f:
+                        blocks.append(blockexplorer.Block(json.load(f)))
+                return blocks
+            else:
+                with open(f'blocks/{height}.json', 'r') as f:
+                    return blockexplorer.Block(json.load(f))
         except:
+            print(heights)
             print("block not found on disk or other error")
             return None
     def clear(self):
