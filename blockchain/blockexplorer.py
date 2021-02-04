@@ -400,6 +400,7 @@ class Block:
         self.height = b['height']
         self.received_time = b.get('received_time', b['time'])
         self.relayed_by = b.get('relayed_by')
+        self.json = b
         self.transactions = [Transaction(t) for t in b['tx']]
         for tx in self.transactions:
             tx.block_height = self.height
