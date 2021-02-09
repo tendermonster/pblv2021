@@ -53,7 +53,7 @@ class BlockInfos:
             inc = inc + 1
         return inc
     def __init_data(self,binWidth):
-        self.__txHistBinLabels = [self.__getHistBinHeight(i,300) for i in self.__sizes]
+        self.__txHistBinLabels = [self.__getHistBinHeight(i,self.__binWidth) for i in self.__sizes]
         #[dataset][0 bin width,1 indexes]
         #block mit transaktionen
         self.__txSelectedFee = []
