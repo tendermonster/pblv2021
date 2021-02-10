@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bitcoin Blockchain statistics</title>
+  <meta name="description" content="PBLV 2021">
+  <meta name="author" content="Artiom,Daniel,Marten">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/track.css') }}">
+</head>
+ <body>
+   <div class="topnav">
+    <a href="/index">Home</a>
+    <a class="active" href="/track">Bitcoin Wallet Tracing</a>
+    <a href="/stats">Bitcoin Blockchain Statistics</a>
+  </div>
+
+  <h1>Hello, {{ test1.value }}!</h1>
+
+  <form method="POST">
+    <input name="text">
+    <input type="submit">
+  </form>
+
+ </body>
+</html>
