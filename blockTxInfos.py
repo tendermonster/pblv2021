@@ -118,50 +118,6 @@ class BlockInfos:
             if binCount[i] != 0:
                 averageTxSize[i] = binCountSum[i]/binCount[i]
         return averageTxSize
-    # def __computeAvgConfTimePerBin(self,txHistBinLabels):
-    #     txHistIndexes = txHistBinLabels[:][1]
-    #     blocks = self.__data.blocks
-    #     blockTimes = [block.time for block in blocks]
-    #     blockHeights =[block.height for block in blocks]
-    #     blockHeightTimeDict = dict(list(zip(blockHeights,blockTimes)))
-    #     confTimePerBin = []
-    #     for block in range(0,len(txHistBinLabels)):
-    #         binCluster = []
-    #         #alle bins rausholen
-    #         for binDict in txHistBinLabels[block][1]:
-    #             #aus jeden bin indizes rausholen
-    #             binGroup = {}
-    #             timesList = []
-    #             for index in txHistBinLabels[block][1][binDict]:
-    #                 tx = self.__txs[block][index]
-    #                 txBlock = tx.block_height
-    #                 confTime = blockHeightTimeDict[txBlock]-tx.time #zeit in s
-    #                 timesList.append(confTime)
-    #             binGroup[binDict] = timesList
-    #             binCluster.append(binGroup)
-    #         confTimePerBin.append(binCluster)
-    #     #get an average conf time per size
-    #
-    #     keys = [list(txDict.keys()) for txDict in txHistIndexes]
-    #     inc = 1
-    #     binCount = {self.__binWidth*i:0 for i in range(1,401)}
-    #     binCountSum = {self.__binWidth*i:0 for i in range(1,401)}
-    #     for dictInd in range(len(confTimePerBin)):
-    #         dictKeys = list(keys[dictInd])
-    #         for keyTx in range(0,len(dictKeys)):
-    #             if dictKeys[keyTx] in confTimePerBin:
-    #                 binCount[dictKeys[keyTx]] += 1
-    #                 print(confTimePerBin[dictInd][keyTx][dictKeys[keyTx]])
-    #                 binCountSum[dictKeys[keyTx]] += sum(confTimePerBin[dictInd][keyTx][dictKeys[keyTx]])
-    #             else:
-    #                 binCount[dictKeys[keyTx]] = 1
-    #                 binCountSum[dictKeys[keyTx]] += sum(confTimePerBin[dictInd][keyTx][dictKeys[keyTx]])
-    #
-    #     avgTimeToConf = {}
-    #     for i in list(binCount.keys()):
-    #         if binCount[i] != 0:
-    #             self.__avgTimeToConf[i] = binCountSum[i]/binCount[i]
-    #     return avgTimeToConf
 
     def __computeAvgConfTimePerBin(self,txHistBinLabels):
         txHistIndexes = [i[1] for i in txHistBinLabels]
@@ -249,4 +205,4 @@ class BlockInfos:
         return self.__avgTimeToConf
     #die methode liefert zum einen daten einer histogram und zum andern
     #die indizen von den datenpunkten die sich in den bins befinden damit man dieser wieder zuordnen kann
-    # rückgabe [binGrößen,indizen von Daten die in den jeweiligen bins drin sind]
+    # ruckgabe binGen,indizen von Daten die in den jeweiligen bins drin sind
