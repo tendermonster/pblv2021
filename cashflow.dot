@@ -1,0 +1,20 @@
+digraph {
+	"1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU3" [label="1BN...iU3" color=red]
+	"16kfKWavgd2JSrtqJEAwmk9FxePcRaLfoK" [label="16k...foK"]
+	"1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU3" -> "16kfKWavgd2JSrtqJEAwmk9FxePcRaLfoK" [label=0.312]
+	"1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU314" [label="+ 14"]
+	"1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU3" -> "1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU314"
+	"1FGbqdXpV7wsJxcnZh5agY14Luu4VN1LUc" [label="1FG...LUc"]
+	"1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU3" -> "1FGbqdXpV7wsJxcnZh5agY14Luu4VN1LUc" [label=1.504]
+	"16kfKWavgd2JSrtqJEAwmk9FxePcRaLfoK" [label="16k...foK"]
+	"1GkTazLc7rn53Jbvm2c5MtjB2A5pD91gbo" [label="1Gk...gbo"]
+	"16kfKWavgd2JSrtqJEAwmk9FxePcRaLfoK" -> "1GkTazLc7rn53Jbvm2c5MtjB2A5pD91gbo" [label=0.007]
+	"1H4JYr3fNqGwBp35ZwnXaqyXo1ifCnR6gN" [label="1H4...6gN"]
+	"16kfKWavgd2JSrtqJEAwmk9FxePcRaLfoK" -> "1H4JYr3fNqGwBp35ZwnXaqyXo1ifCnR6gN" [label=0.305]
+	"1GkTazLc7rn53Jbvm2c5MtjB2A5pD91gbo" [label="1Gk...gbo"]
+	"1H4JYr3fNqGwBp35ZwnXaqyXo1ifCnR6gN" [label="1H4...6gN"]
+	"1FGbqdXpV7wsJxcnZh5agY14Luu4VN1LUc" [label="1FG...LUc"]
+	"1GN8CsYTpyhmgEVjzj2dfr2Np7iBkwmwpr" [label="1GN...wpr"]
+	"1FGbqdXpV7wsJxcnZh5agY14Luu4VN1LUc" -> "1GN8CsYTpyhmgEVjzj2dfr2Np7iBkwmwpr" [label=1.504]
+	"1GN8CsYTpyhmgEVjzj2dfr2Np7iBkwmwpr" [label="1GN...wpr"]
+}
