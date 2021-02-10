@@ -6,9 +6,7 @@ import sys
 @app.route('/')
 @app.route('/index')
 def index():
-    test1 = Test(123)
-    title="Home"
-    return render_template('index.html',**locals())
+    return render_template('index.html')
 
 @app.route('/track')
 def track():
