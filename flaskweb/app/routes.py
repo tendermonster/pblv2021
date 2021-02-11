@@ -12,6 +12,8 @@ from blockchainData import BlockchainData
 import pandas as pd
 import numpy as np
 data = BlockchainData()
+fees = FeeEstimation(data)
+blockStuff = BlockInfos(300,data)
 @app.route('/')
 @app.route('/index')
 def index():
@@ -32,8 +34,6 @@ def stats():
     nt = NewTransactions()
     martendata = [int(round(tm.get_median(), 0)), int(round(tb.get_median(), 0)), round(block.get_avg() / 60, 2), int(round(nt.get_avg(), 0)), nt.get_10_cmp()]
     #pass this BlockchainData object to help performance
-    fees = FeeEstimation(data)
-    blockStuff = BlockInfos(300,data)
     feeMinAvgMax = {}
     feeMinAvgMax['min']=fees.getFeeMin()
     feeMinAvgMax['avg']=fees.getFeeAvg()
@@ -45,9 +45,13 @@ def stats():
     c1 = list(procOfAllTxPerBin.values())
     c2 = list(ppbPerBin.values())
     c3 = list(confTimePerBin.values())
+    #c0 = [i for i in range(0,250)]
+    #c1 = [i for i in range(0,250)]
+    #c2 = [i for i in range(0,250)]
+    #c3 = [i for i in range(0,250)]
     print(len(c0),len(c1),len(c2),len(c3))
-    histFrame = pd.DataFrame({'bins':c0,'proc of tx':c1,'ppb':c2,'conf time':c3})
-    histFrame.set_index("bins")
+    histFrame = pd.DataFrame({'bins in byte':c0,'proc of tx':c1,'ppb':c2,'conf time in s':c3})
+    histFrame.set_index(["bins in byte"],inplace=True)
     tables=[histFrame.to_html(classes='data',header="true")]
     titles=histFrame.columns.values
     #create pandas html

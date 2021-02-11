@@ -13,10 +13,16 @@
     <a href="/track">Bitcoin Wallet Tracing</a>
     <a class="active" href="/stats">Bitcoin Blockchain Statistics</a>
    </div>
-   <div>
-       {% for table in tables %}
-        {{ table|safe }}
-       {% endfor %}
+   <h2>Schätzung von Transaktionskosten im nächsten Block</h2>
+   <p>Min: {{feeMinAvgMax['min']}} Average:{{feeMinAvgMax['avg']}} Max: {{feeMinAvgMax['max']}} </p>
+   <h2>Zusammenhänge zwischen Größe der Transaktion,Transaktionskosten,Häufigkeit im Bezug auf Größe</h2>
+   <div class="table-wrapper">
+     <table class="fixed_header">
+       <tbody>
+         {% for table in tables %}
+          {{ table|safe }}
+         {% endfor %}
+       </tbody>
     </div>
 
    <h2>Transaktionen im Mempool</h2>

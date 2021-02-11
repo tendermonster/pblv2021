@@ -13,7 +13,6 @@ form {text-align: center;}
 .container {
   position: relative
 }
-table {text-align: center;}
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -36,29 +35,23 @@ table {text-align: center;}
   color: white;
 }
 
-
-table.dataframe, .dataframe th, .dataframe td {
-  border: none;
-  border-bottom: 1px solid #C8C8C8;
-  border-collapse: collapse;
-  text-align:left;
-  padding: 10px;
-  margin-bottom: 40px;
-  font-size: 0.9em;
-  overflow-y:scroll;
+.table-wrapper
+{
+    border: 1px solid red;
+    width: 50%;
+    height: 350px;
+    overflow: auto;
 }
 
-.male th {
-    background-color: #add8e6;
-    color: white;
+table
+{
+    border: 1px solid black;
+    margin-right: 20px;
 }
 
-.female th {
-    background-color: #77dd77;
-    color: white;
+td
+{
+    width: 200px;
+    height: 50px;
+    background-color: #ccc;
 }
-
-tr:nth-child(odd)		{ background-color:#eee; }
-tr:nth-child(even)	{ background-color:#fff; }
-
-tr:hover            { background-color: #ffff99;}
