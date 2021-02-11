@@ -12,8 +12,8 @@ class TransactionsMempool():
     """
     
     def __init__(self):
-        self.df = pd.read_csv('amount_transactions.csv')
-        self.df_blocks = pd.read_csv('tx_per_block.csv')
+        self.df = pd.read_csv('./marten/amount_transactions.csv')
+        self.df_blocks = pd.read_csv('./marten/tx_per_block.csv')
         self.timestamps = self.convert_to_timestamps()
         
     def convert_to_timestamps(self):
@@ -64,7 +64,7 @@ class TransactionsMempool():
 class TransactionsBlock():
     
     def __init__(self):
-        self.df_blocks = pd.read_csv('tx_per_block.csv')
+        self.df_blocks = pd.read_csv('./marten/tx_per_block.csv')
         
     def get_avg(self):
         return np.average(self.df_blocks['tx_count'])
@@ -82,13 +82,13 @@ class TransactionsBlock():
         _ = plt.xticks([])
         _ = plt.savefig(filename)
         
-        
+   
 class Blockdifference():
     """
     Berechnet die Zeit zwischen der Erstellung von zwei Blöcken.
     """
     def __init__(self):
-        self.df_blocks = pd.read_csv('tx_per_block.csv')
+        self.df_blocks = pd.read_csv('./marten/tx_per_block.csv')
         self.differences = self.__get_differences__()
         
     def __get_differences__(self):
@@ -106,7 +106,7 @@ class Blockdifference():
         
     
     def tx_pro_block(self):
-        return f"Alle {np.average(self.differences) / 60} Minuten werden {np.average(self.df_blocks['tx_count'])} Transaktionen aus dem Mempool entfernt."
+        return f"Alle {int(round(np.average(self.differences) / 60, 0))} Minuten werden {int(np.average(self.df_blocks['tx_count']))} Transaktionen aus dem Mempool entfernt."
     
     
     def save_graph(self, filename='block_difference.png', showmedian=False):
@@ -125,8 +125,8 @@ class Blockdifference():
 class NewTransactions():
     
     def __init__(self):
-        self.df = pd.read_csv('amount_transactions.csv')
-        self.df_blocks = pd.read_csv('tx_per_block.csv')
+        self.df = pd.read_csv('./marten/amount_transactions.csv')
+        self.df_blocks = pd.read_csv('./marten/tx_per_block.csv')
         self.__calc_timestamps__()
         self.new_txs = self.__get_new_txs__()
 
@@ -177,7 +177,7 @@ class NewTransactions():
         b = Blockdifference()
         #pred_10 = self.df_blocks['tx_count'].mean() / np.quantile(b.differences, 0.5) * 600
         pred_10 = self.df_blocks['tx_count'].mean() / np.average(b.differences) * 600
-        return f"Alle zehn Minuten werden {int(pred_10)} Transaktionen in Blöcke verpackt, während {int(np.quantile(self.new_txs, 0.5)*2)} neue Transaktionen erstehen"
+        return f"Alle zehn Minuten werden {int(pred_10)} Transaktionen in Blöcken bestätigt, während {int(np.median(self.new_txs)*2)} neue Transaktionen erstehen"
     
     
     def save_graph(self, filename='5_minute_transactions'):

@@ -13,5 +13,39 @@
     <a href="/track">Bitcoin Wallet Tracing</a>
     <a class="active" href="/stats">Bitcoin Blockchain Statistics</a>
    </div>
+   <p>{{someData.values()}}</p>
+   <p>{{testData.checkPath()}}</p>
+
+   <h1>Hello, {{ test1.value }}!</h1>
+
+
+   <h2>Transaktionen im Mempool</h2>
+   <div class="box"> 
+    <img src="{{ url_for('static',filename='images/txs_in_mempool.png') }}" alt="Paris" class="center">
+  </div>
+  <p>Im Mittel befinden sich {{martendata[0]}} Transaktionen im Mempool</p> 
+<br>
+  <h2>Anzahl Transaktionen im Blöcken</h2>
+   <div class="box"> 
+    <img src="{{ url_for('static',filename='images/txs_in_block.png') }}" alt="Paris" class="center">
+  </div>
+<p>Zusätzlich sind in etwa {{martendata[1]}} Transaktionen in den Blöcken vorhanden.</p>
+<br>
+<h2>Benötigte Zeit für das Minen eines Blocks</h2>
+   <div class="box"> 
+    <img src="{{ url_for('static',filename='images/block_difference.png') }}" alt="Paris" class="center">
+  </div>
+<p>{{martendata[2]}} Minuten werden durchschnittlich für das Minen eines Blocks benötigt.</p> 
+<br>
+<h2>Neue Transaktionen in 5 Minuten Abständen</h2>
+   <div class="box"> 
+    <img src="{{ url_for('static',filename='images/5_min_transactions.png') }}" alt="Paris" class="center">
+  </div>
+<p> Alle 5 Minuten gibt es in etwa {{martendata[3]}} neue Transaktionen im Mempool.
+<br>
+<p>
+<h2> Zusammenfassung </h2>
+{{martendata[4]}}
+</p>
  </body>
 </html>

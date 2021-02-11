@@ -49,30 +49,31 @@ class Cashflow():
     def save_graph(self, filename=None):
         if filename is None:
             filename = 'cashflow.png'
-        graph = self.plot()
+        graph = self.plot(other_addresses=self.other_addresses)
         graph.save('cashflow.dot')
         check_call(['dot','-Tpng','cashflow.dot','-o', filename])
     
     
-    def plot(self, color='red', dot_p=None):
+    def plot(self, color='red', dot_p=None, other_addresses=None):
         if dot_p is None:
             dot = Digraph()
         else:
             dot = dot_p
+             
         dot.node(self.address, self.address[:3] + "..." + self.address[-3:], color=color)
         
         keys = [key for key in self.cashflow.keys()]
         #if len(keys) > 3:
          #   keys = [keys[0], len(keys)-2, keys[-1]]
         
-        self.__create_graph__(dot, keys)
+        self.__create_graph__(dot, keys, other_addresses)
         
         for cash in self.next_items:
-            cash.plot(None, dot)            
+            cash.plot(None, dot, other_addresses)            
         return dot
     
     
-    def __create_graph__(self, dot, keys):
+    def __create_graph__(self, dot, keys, others=None):
         for key in keys:
             if type(key) is int:
                 name = self.address + str(key) 
@@ -80,7 +81,10 @@ class Cashflow():
                 dot.edge(self.address, name)
             else:
                 val = round(sum(self.cashflow[key]), 3)
-                dot.node(key, key[:3] + "..." + key[-3:]) 
+                if others is not None and key in others:
+                    dot.node(key, key[:3] + "..." + key[-3:], color='red') 
+                else:
+                    dot.node(key, key[:3] + "..." + key[-3:]) 
                 dot.edge(self.address, key, str(val))
         
     

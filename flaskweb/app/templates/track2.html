@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bitcoin Blockchain statistics</title>
+  <meta name="description" content="PBLV 2021">
+  <meta name="author" content="Artiom,Daniel,Marten">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/track.css') }}">
+</head>
+ <body>
+   <div class="topnav">
+    <a href="/index">Home</a>
+    <a class="active" href="/track">Bitcoin Wallet Tracing</a>
+    <a href="/stats">Bitcoin Blockchain Statistics</a>
+  </div>
+
+
+  
+  <h3><p>Bitcoin Adresse eingeben</p></h3>
+  <form align="center" method="POST">
+    <input name="text" name="enter bitcoin wallet address" placeholder="1BN1tfVf9z5UYmNCwBhpRX31GVdqpNSiU3">
+    <input type="submit" value="Verfolgen">
+  </form>
+ <br>
+<body>
+  <div class="box"> 
+    <img src="{{ url_for('static',filename='images/cashflow2.png') }}" alt="Paris" class="center">
+  </div>
+</body>
+
+ 
+ <p> Es konnte <b>keine</b> Verbindung zu einer Exchange Wallet festgestellt werden. </p>
+
+ </body>
+</html>
