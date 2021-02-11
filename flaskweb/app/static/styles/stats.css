@@ -60,3 +60,28 @@ td
     height: 50px;
     background-color: #ccc;
 }
+
+tbody tr:nth-child(odd) {
+  background-color: #008080;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #1e90ff;
+}
+
+tbody tr {
+  background-image: url(noise.png);
+}
+
+table {
+  background-color: #a0522d;
+}
+
+caption {
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  letter-spacing: 1px;
+}
