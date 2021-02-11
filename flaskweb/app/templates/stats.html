@@ -13,45 +13,46 @@
     <a href="/track">Bitcoin Wallet Tracing</a>
     <a class="active" href="/stats">Bitcoin Blockchain Statistics</a>
    </div>
-   <h2>Schätzung von Transaktionskosten im nächsten Block</h2>
-   <p>Min: {{feeMinAvgMax['min']}} Average:{{feeMinAvgMax['avg']}} Max: {{feeMinAvgMax['max']}} </p>
-   <h2>Zusammenhänge zwischen Größe der Transaktion,Transaktionskosten,Häufigkeit im Bezug auf Größe</h2>
-   <div class="table-wrapper">
-     <table class="fixed_header">
+   <h2 style="text-align:center;">Schätzung von Transaktionskosten im nächsten Block</h2>
+   <p style="text-align:center;">Min: {{feeMinAvgMax['min']}} Average:{{feeMinAvgMax['avg']}} Max: {{feeMinAvgMax['max']}} </p>
+   <h2 style="text-align:center;">Zusammenhänge zwischen Größe der Transaktion,Transaktionskosten,Häufigkeit im Bezug auf Größe</h2>
+   <div class="table-wrapper center">
+     <table class="fixed_header center">
        <tbody>
          {% for table in tables %}
           {{ table|safe }}
          {% endfor %}
        </tbody>
+     </table>
     </div>
-
-   <h2>Transaktionen im Mempool</h2>
-   <div class="box">
-    <img src="{{ url_for('static',filename='images/txs_in_mempool.png') }}" alt="Paris" class="center">
-  </div>
-  <p>Im Mittel befinden sich {{martendata[0]}} Transaktionen im Mempool</p>
+   <h2 style="text-align:center;">Transaktionen im Mempool</h2>
+   <p style="text-align:center;">
+    <img src="{{ url_for('static',filename='images/txs_in_mempool.png') }}" alt="Paris" class="center"><br>
+       Im Mittel befinden sich {{martendata[0]}} Transaktionen im Mempool
+   </p>
 <br>
-  <h2>Anzahl Transaktionen im Blöcken</h2>
-   <div class="box">
-    <img src="{{ url_for('static',filename='images/txs_in_block.png') }}" alt="Paris" class="center">
-  </div>
-<p>Zusätzlich sind in etwa {{martendata[1]}} Transaktionen in den Blöcken vorhanden.</p>
+  <h2 style="text-align:center;">Anzahl Transaktionen im Blöcken</h2>
+   <p style="text-align:center;">
+    <img src="{{ url_for('static',filename='images/txs_in_block.png') }}" alt="Paris" class="center"><br>
+       Zusätzlich sind in etwa {{martendata[1]}} Transaktionen in den Blöcken vorhanden.
+   </p>
 <br>
-<h2>Benötigte Zeit für das Minen eines Blocks</h2>
-   <div class="box">
-    <img src="{{ url_for('static',filename='images/block_difference.png') }}" alt="Paris" class="center">
-  </div>
-<p>{{martendata[2]}} Minuten werden durchschnittlich für das Minen eines Blocks benötigt.</p>
+<h2 style="text-align:center;">Benötigte Zeit für das Minen eines Blocks</h2>
+   <p style="text-align:center;">
+    <img src="{{ url_for('static',filename='images/block_difference.png') }}" alt="Paris" class="center"><br>
+       {{martendata[2]}} Minuten werden durchschnittlich für das Minen eines Blocks benötigt.
+   </p>
 <br>
-<h2>Neue Transaktionen in 5 Minuten Abständen</h2>
-   <div class="box">
-    <img src="{{ url_for('static',filename='images/5_min_transactions.png') }}" alt="Paris" class="center">
-  </div>
-<p> Alle 5 Minuten gibt es in etwa {{martendata[3]}} neue Transaktionen im Mempool.
+<h2 style="text-align:center;">Neue Transaktionen in 5 Minuten Abständen</h2>
+   <p style="text-align:center;">
+    <img src="{{ url_for('static',filename='images/5_min_transactions.png') }}" alt="Paris"><br>
+       Alle 5 Minuten gibt es in etwa {{martendata[3]}} neue Transaktionen im Mempool.
+   </p>
 <br>
-<p>
-<h2> Zusammenfassung </h2>
+<h2 style="text-align:center;"> Zusammenfassung </h2>
+   <p style="text-align:center;">
 {{martendata[4]}}
 </p>
  </body>
 </html>
+
