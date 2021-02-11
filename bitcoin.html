@@ -27,21 +27,21 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Bitcoin</h1><h2 class="author">Ein Blick hinter die Kulissen</h2><h2 class="date">Artiom Blionovas, Marten Budelmann, Daniel Hilgert</h2><p class="date">Created: 2021-02-11 Do 21:27</p>
+<section id="sec-title-slide"><h1 class="title">Bitcoin</h1><h2 class="author">Ein Blick hinter die Kulissen</h2><h2 class="date">Artiom Blionovas, Marten Budelmann, Daniel Hilgert</h2><p class="date">Created: 2021-02-11 Do 22:57</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orgb66d83d">Realisierung</a></li>
-<li><a href="#/slide-org9d0256c">Cashflow Analyse</a></li>
-<li><a href="#/slide-org182ab26">Transaction Fees</a></li>
-<li><a href="#/slide-org182890e">Front/Backend</a></li>
-<li><a href="#/slide-org9c76d52">Probleme</a></li>
-<li><a href="#/slide-orga742d39">Live Demo</a></li>
-<li><a href="#/slide-org2eb4149">Ausblick</a></li>
-<li><a href="#/slide-orga457a53">Fragen?</a></li>
+<li><a href="#/slide-orgb1a6f40">Realisierung</a></li>
+<li><a href="#/slide-org201afe6">Cashflow Analyse</a></li>
+<li><a href="#/slide-orgbf57744">Transaction Fees</a></li>
+<li><a href="#/slide-orga837602">Front/Backend</a></li>
+<li><a href="#/slide-org6409469">Live Demo</a></li>
+<li><a href="#/slide-org2ef9e79">Probleme</a></li>
+<li><a href="#/slide-orgad1c8c7">Zusammenfassung / Ausblick</a></li>
+<li><a href="#/slide-org7fefde3">Fragen?</a></li>
 </ul>
 </div>
 </div>
@@ -49,7 +49,7 @@
 
 <section>
 <section id="slide-sec-">
-<h2 id="orgb66d83d">Realisierung</h2>
+<h2 id="orgb1a6f40">Realisierung</h2>
 <ul>
 <li>Nutzung der REST APIs von:
 <ul>
@@ -64,7 +64,7 @@
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="org9d0256c">Cashflow Analyse</h2>
+<h2 id="org201afe6">Cashflow Analyse</h2>
 <ul>
 <li>Nutzung von Bitcoin für illegale Zwecke</li>
 <li>seit 2018 ca. 210.000 gemeldete Adressen auf bitcoinabuse.com</li>
@@ -78,7 +78,7 @@
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="orgf925e38">Aufbau einer Transaktion</h3>
+<h3 id="org88760f6">Aufbau einer Transaktion</h3>
 <ul>
 <li>eine Transaktion ist eine n:m Beziehung bei Input- zu Outputadressen</li>
 
@@ -89,9 +89,16 @@
 </p>
 <p><span class="figure-number">Figure 2: </span>Beispiel einer Transaktion</p>
 </div>
+<blockquote nil>
+<p>
+Some linking is still unavoidable with multi-input transactions, which
+necessarily reveal that their inputs were owned by the same owner. 
+(Nakamoto 2008)
+</p>
+</blockquote>
 </section>
 <section id="slide-sec-">
-<h3 id="orgd63443b">Wiederverwendung von Adressen</h3>
+<h3 id="orgfdb99ca">Wiederverwendung von Adressen</h3>
 <ul>
 <li>Adressen möglichst nicht wiederverwenden ("bitcoin invoice" anstatt
 "bitcoin address")</li>
@@ -100,7 +107,7 @@
 </ul>
 </section>
 <section id="slide-sec-">
-<h3 id="org1e1244f">Change Adressen</h3>
+<h3 id="org5f1857a">Change Adressen</h3>
 
 <div class="figure">
 <p><img src="./bilder/change_address.png" alt="change_address.png" />
@@ -108,32 +115,15 @@
 <p><span class="figure-number">Figure 3: </span>Change Adressen</p>
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org4c2d2c4">Verfolgen des Geldflusses</h3>
-<blockquote nil>
-<p>
-Some linking is still unavoidable with multi-input transactions, which
-necessarily reveal that their inputs were owned by the same owner. 
-(Nakamoto 2008)
-</p>
-</blockquote>
-
-<div class="figure">
-<p><img src="./bilder/cashflow_old.png" alt="cashflow_old.png" />
-</p>
-<p><span class="figure-number">Figure 4: </span>Verfolgung des Geldflusses</p>
-</div>
-
-</section>
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="org182ab26">Transaction Fees</h2>
-<div class="outline-text-2" id="text-org182ab26">
+<h2 id="orgbf57744">Transaction Fees</h2>
+<div class="outline-text-2" id="text-orgbf57744">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org6928e51">Vorhersage der Gebühren pro Byte</h3>
+<h3 id="org79c9663">Vorhersage der Gebühren pro Byte</h3>
 <ul>
 <li>Transaktion Kosten pro Byte</li>
 <li>Median und Interquartilsabstand</li>
@@ -144,15 +134,15 @@ necessarily reveal that their inputs were owned by the same owner.
 <div class="figure">
 <p><img src="./bilder/txfee.png" alt="txfee.png" />
 </p>
-<p><span class="figure-number">Figure 5: </span>Vorhersage Gebühren pro Byte</p>
+<p><span class="figure-number">Figure 4: </span>Vorhersage Gebühren pro Byte</p>
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org133b6b8">Zusammenhang zwischen Größe und Kosten einer Transaktion</h3>
+<h3 id="orge9569ef">Zusammenhang zwischen Größe und Kosten einer Transaktion</h3>
 <ul>
 <li>Alle Transaktionen der letzten 50 Blöcken nach Größe kategoriesieren</li>
 <li>Anteil von Transaktionen in %, Gebühren pro Byte, Bestätigungszeit</li>
-<li>Ergebnis: Gebühren pro Byte hängt gerin von der Größe ab, aber nicht signifikant</li>
+<li>Ergebnis: Gebühren pro Byte hängt gering von der Größe ab, aber nicht signifikant</li>
 <li>Mögliche Erklärung: Miner versuchen die Blöcke möglichst dicht zu befüllen</li>
 
 </ul>
@@ -161,7 +151,7 @@ necessarily reveal that their inputs were owned by the same owner.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="org182890e">Front/Backend</h2>
+<h2 id="orga837602">Front/Backend</h2>
 <ul>
 <li>Flask
 <ul>
@@ -176,7 +166,14 @@ necessarily reveal that their inputs were owned by the same owner.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="org9c76d52">Probleme</h2>
+<h2 id="org6409469">Live Demo</h2>
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org2ef9e79">Probleme</h2>
 <ul>
 <li>Statuscode 429</li>
 <li>Verbesserung der Anonymität</li>
@@ -189,13 +186,7 @@ necessarily reveal that their inputs were owned by the same owner.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orga742d39">Live Demo</h2>
-
-</section>
-</section>
-<section>
-<section id="slide-sec-">
-<h2 id="org2eb4149">Ausblick</h2>
+<h2 id="orgad1c8c7">Zusammenfassung / Ausblick</h2>
 <ul>
 <li>Blockchain/Mempool herunterladen</li>
 <li>Einbezug vom Mempool in die Statistik</li>
@@ -206,12 +197,12 @@ necessarily reveal that their inputs were owned by the same owner.
 </ul>
 </section>
 <section id="slide-sec-">
-<h3 id="orgc245949">Geldfluss Analyse</h3>
+<h3 id="orga6a1964">Geldfluss Analyse</h3>
 
 <div class="figure">
 <p><img src="./bilder/analyse.png" alt="analyse.png" />
 </p>
-<p><span class="figure-number">Figure 6: </span>Anonymitäts Analyse von Reid und Harrigan, 2012</p>
+<p><span class="figure-number">Figure 5: </span>Anonymitäts Analyse von Reid und Harrigan, 2012</p>
 </div>
 <ul>
 <li>Chainalysis: Unternehmen, welches sich auf die Bitcoin Analyse spezialisiert hat</li>
@@ -222,7 +213,7 @@ necessarily reveal that their inputs were owned by the same owner.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orga457a53">Fragen?</h2>
+<h2 id="org7fefde3">Fragen?</h2>
 </section>
 </section>
 </div>

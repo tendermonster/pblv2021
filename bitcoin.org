@@ -30,6 +30,11 @@
 - eine Transaktion ist eine n:m Beziehung bei Input- zu Outputadressen
 #+CAPTION: Beispiel einer Transaktion
 [[./bilder/mzuntxs.png]]
+#+BEGIN_QUOTE
+Some linking is still unavoidable with multi-input transactions, which
+necessarily reveal that their inputs were owned by the same owner. 
+(Nakamoto 2008)
+#+END_QUOTE
 ** Wiederverwendung von Adressen
 - Adressen möglichst nicht wiederverwenden ("bitcoin invoice" anstatt
   "bitcoin address")
@@ -37,15 +42,6 @@
 ** Change Adressen
 #+CAPTION: Change Adressen
 [[./bilder/change_address.png]]
-** Verfolgen des Geldflusses
-#+BEGIN_QUOTE
-Some linking is still unavoidable with multi-input transactions, which
-necessarily reveal that their inputs were owned by the same owner. 
-(Nakamoto 2008)
-#+END_QUOTE
-#+CAPTION: Verfolgung des Geldflusses
-[[./bilder/cashflow_old.png]]
-
 * Transaction Fees
 ** Vorhersage der Gebühren pro Byte
 - Transaktion Kosten pro Byte
@@ -56,7 +52,7 @@ necessarily reveal that their inputs were owned by the same owner.
 ** Zusammenhang zwischen Größe und Kosten einer Transaktion
 - Alle Transaktionen der letzten 50 Blöcken nach Größe kategoriesieren
 - Anteil von Transaktionen in %, Gebühren pro Byte, Bestätigungszeit
-- Ergebnis: Gebühren pro Byte hängt gerin von der Größe ab, aber nicht signifikant
+- Ergebnis: Gebühren pro Byte hängt gering von der Größe ab, aber nicht signifikant
 - Mögliche Erklärung: Miner versuchen die Blöcke möglichst dicht zu befüllen
 
 * Front/Backend
@@ -64,15 +60,16 @@ necessarily reveal that their inputs were owned by the same owner.
   - schnelles Prototyping
   - für ein kleines Projekt vollkommen ausreichend
 
+* Live Demo
+
+
 * Probleme
 - Statuscode 429
 - Verbesserung der Anonymität
 - Effizienz bei der Verarbeitung von großen Datenmengen
 - Verbindung Front-/Backend
 
-* Live Demo
-
-* Ausblick
+* Zusammenfassung / Ausblick
 - Blockchain/Mempool herunterladen
 - Einbezug vom Mempool in die Statistik
 - Bigdata
