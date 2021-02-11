@@ -1,0 +1,71 @@
+# -*- coding: utf-8 -*-
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_rolling_links:nil reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1920 reveal_height:1080
+#+OPTIONS: toc:1
+#+OPTIONS: ^:nil
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: simple
+#+REVEAL_PLUGINS: (markdown notes)
+#+REVEAL_EXTRA_CSS: ../../02_css/local.css
+
+#+Title: Bitcoin 
+#+Author: EIn Blick hinter die Kulissen
+#+Date: Artiom Blionovas, Marten Budelmann
+
+* Realisierung
+- Nutzung der REST APIs von:
+  - blockchain.info
+  - mempool.space
+  - walletexplorer.com
+* Cashflow Analyse
+- Nutzung von Bitcoin für illegale Zwecke
+- seit 2018 ca. 210.000 gemeldete Adressen auf bitcoinabuse.com
+#+CAPTION: Nutzung für illegale Zwecke
+[[./bilder/1_reports.png]]
+** Aufbau einer Transaktion
+- eine Transaktion ist eine n:m Beziehung bei Input- zu Outputadressen
+#+CAPTION: Beispiel einer Transaktion
+[[./bilder/mzuntxs.png]]
+** Wiederverwendung von Adressen
+- Adressen möglichst nicht wiederverwenden ("bitcoin invoice" anstatt
+  "bitcoin address")
+- Verwendung von Deterministischen Wallets mit Seed Phrase
+** Change Adressen
+#+CAPTION: Change Adressen
+[[./bilder/change_address.png]]
+** Verfolgen des Geldflusses
+#+BEGIN_QUOTE
+Some linking is still unavoidable with multi-input transactions, which
+necessarily reveal that their inputs were owned by the same owner. 
+(Nakamoto 2008)
+#+END_QUOTE
+#+CAPTION: Change Adressen
+[[./bilder/cashflow_old.png]]
+** Beispiel
+Live Demo
+
+* Transaction Fees
+** Vorhersage der Fee per Byte
+- für jede Transaktion Kosten pro Byte berechnen
+- Median und Interquartilsabstand berechnen
+- Approximation mit Linearer Regression
+** Zusammenhang zwischen Größe und Kosten einer Transaktion
+- Unterteilung der letzten 50 Blöcke in Kategorien
+* Probleme
+- Statuscode 429
+- Frontend
+* Ausblick
+- Blockchain herunterladen
+- Bigdata
+- Deterministische Wallets
+** Geldfluss Analyse
+#+CAPTION: Anonymitäts Analyse von Reid und Harrigan, 2012
+[[./bilder/analyse.png]]
+- Chainalysis: Unternehmen, welches sich auf die Bitcoin Analyse spezialisiert hat
+** Transaction Fees
+#+CAPTION: Meldung tagesschau
+[[./bilder/tesla.png]]

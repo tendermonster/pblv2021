@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Bitcoin</title>
+<meta name="author" content="(EIn Blick hinter die Kulissen)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../../02_css/local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Bitcoin</h1><h2 class="author">EIn Blick hinter die Kulissen</h2><h2 class="date">Artiom Blionovas, Marten Budelmann</h2><p class="date">Created: 2021-02-11 Do 18:55</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orgf0f185c">Realisierung</a></li>
+<li><a href="#/slide-orgfcd90bf">Cashflow Analyse</a></li>
+<li><a href="#/slide-orge5dd0b0">Transaction Fees</a></li>
+<li><a href="#/slide-org9c3a924">Probleme</a></li>
+<li><a href="#/slide-org8aeb0fa">Ausblick</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-sec-">
+<h2 id="orgf0f185c">Realisierung</h2>
+<ul>
+<li>Nutzung der REST APIs von:
+<ul>
+<li>blockchain.info</li>
+<li>mempool.space</li>
+<li>walletexplorer.com</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="orgfcd90bf">Cashflow Analyse</h2>
+<ul>
+<li>Nutzung von Bitcoin für illegale Zwecke</li>
+<li>seit 2018 ca. 210.000 gemeldete Adressen auf bitcoinabuse.com</li>
+
+</ul>
+
+<div class="figure">
+<p><img src="./bilder/1_reports.png" alt="1_reports.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Nutzung für illegale Zwecke</p>
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="orgcb07f12">Aufbau einer Transaktion</h3>
+<ul>
+<li>eine Transaktion ist eine n:m Beziehung bei Input- zu Outputadressen</li>
+
+</ul>
+
+<div class="figure">
+<p><img src="./bilder/mzuntxs.png" alt="mzuntxs.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Beispiel einer Transaktion</p>
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org8d3b0fd">Wiederverwendung von Adressen</h3>
+<ul>
+<li>Adressen möglichst nicht wiederverwenden ("bitcoin invoice" anstatt
+"bitcoin address")</li>
+<li>Verwendung von Deterministischen Wallets mit Seed Phrase</li>
+
+</ul>
+</section>
+<section id="slide-sec-">
+<h3 id="orgc6221b3">Change Adressen</h3>
+
+<div class="figure">
+<p><img src="./bilder/change_address.png" alt="change_address.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Change Adressen</p>
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org395c73a">Verfolgen des Geldflusses</h3>
+<blockquote nil>
+<p>
+Some linking is still unavoidable with multi-input transactions, which
+necessarily reveal that their inputs were owned by the same owner. 
+(Nakamoto 2008)
+</p>
+</blockquote>
+
+<div class="figure">
+<p><img src="./bilder/cashflow_old.png" alt="cashflow_old.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Change Adressen</p>
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org8eb589d">Beispiel</h3>
+<p>
+Live Demo
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="orge5dd0b0">Transaction Fees</h2>
+<div class="outline-text-2" id="text-orge5dd0b0">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="orgb2df0e5">Vorhersage der Fee per Byte</h3>
+<ul>
+<li>für jede Transaktion Kosten pro Byte berechnen</li>
+<li>Median und Interquartilsabstand berechnen</li>
+<li>Approximation mit Linearer Regression</li>
+
+</ul>
+</section>
+<section id="slide-sec-">
+<h3 id="orgdd1ed46">Zusammenhang zwischen Größe und Kosten einer Transaktion</h3>
+<ul>
+<li>Unterteilung der letzten 50 Blöcke in Kategorien</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org9c3a924">Probleme</h2>
+<ul>
+<li>Statuscode 429</li>
+<li>Frontend</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org8aeb0fa">Ausblick</h2>
+<ul>
+<li>Blockchain herunterladen</li>
+<li>Bigdata</li>
+<li>Deterministische Wallets</li>
+
+</ul>
+</section>
+<section id="slide-sec-">
+<h3 id="orge2637b0">Geldfluss Analyse</h3>
+
+<div class="figure">
+<p><img src="./bilder/analyse.png" alt="analyse.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Anonymitäts Analyse von Reid und Harrigan, 2012</p>
+</div>
+<ul>
+<li>Chainalysis: Unternehmen, welches sich auf die Bitcoin Analyse spezialisiert hat</li>
+
+</ul>
+</section>
+<section id="slide-sec-">
+<h3 id="orgf730802">Transaction Fees</h3>
+
+<div class="figure">
+<p><img src="./bilder/tesla.png" alt="tesla.png" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Meldung tagesschau</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
