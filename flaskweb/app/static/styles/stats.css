@@ -42,7 +42,6 @@ form {text-align: center;}
 
 .table-wrapper
 {
-    border: 1px solid red;
     width: 50%;
     height: 350px;
     overflow: auto;
@@ -62,19 +61,20 @@ td
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #008080;
+  background-color: #eee;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #1e90ff;
+  background-color: #fff;
 }
+tr:hover            { background-color: #ffff99;}
 
 tbody tr {
   background-image: url(noise.png);
 }
 
 table {
-  background-color: #a0522d;
+  background-color: #eee;
 }
 
 caption {
