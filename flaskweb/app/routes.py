@@ -5,8 +5,9 @@ import sys
 from blockTxInfos import BlockInfos
 from Mempool import Blockdifference, TransactionsMempool, TransactionsBlock, NewTransactions
 from testClass import Test
-data = BlockInfos(300)
-testData = Test(123)
+from blockutils import BlockUtils
+from estimatedFees import FeeEstimation
+from blockTxInfos import BlockInfos
 @app.route('/')
 @app.route('/index')
 def index():
@@ -26,10 +27,10 @@ def stats():
     tb = TransactionsBlock()
     nt = NewTransactions()
     martendata = [int(round(tm.get_median(), 0)), int(round(tb.get_median(), 0)), round(block.get_avg() / 60, 2), int(round(nt.get_avg(), 0)), nt.get_10_cmp()]
-    test1 = Test(123)
-    title="Home"
-    someData = data.getAvgPpbSize()
-    testData = Test(123)
+    fees = FeeEstimation()
+    print(fees.getFeeAvg())
+    blockStuff = BlockInfos(300)
+    print(blockStuff.getAvgPpbSize())
     return render_template('stats.html',**locals())
 
 @app.route('/track', methods=['POST'])
