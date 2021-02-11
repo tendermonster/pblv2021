@@ -1,7 +1,15 @@
 import sys
 import os
 pathTo = os.getcwd()+"/app"
-print(pathTo)
+os.chdir("..")
+artiDir = os.path.abspath(os.curdir)+"/arti"
+martenDir = os.path.abspath(os.curdir)+"/marten"
 sys.path.insert(0, pathTo)
+sys.path.insert(0, artiDir)
+sys.path.insert(0, martenDir)
 print(sys.path)
+from blockTxInfos import BlockInfos
+data = BlockInfos(300)
+print(data.getAvgPpbSize())
+
 from app import app

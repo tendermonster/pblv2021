@@ -2,7 +2,10 @@ from flask import Flask, request, render_template
 from app import app
 from testClass import Test
 import sys
-
+from blockTxInfos import BlockInfos
+from testClass import Test
+data = BlockInfos(300)
+testData = Test(123)
 @app.route('/')
 @app.route('/index')
 def index():
@@ -18,6 +21,8 @@ def track():
 def stats():
     test1 = Test(123)
     title="Home"
+    someData = data.getAvgPpbSize()
+    testData = Test(123)
     return render_template('stats.html',**locals())
 
 @app.route('/track', methods=['POST'])
