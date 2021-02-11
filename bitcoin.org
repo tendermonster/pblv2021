@@ -13,8 +13,8 @@
 #+REVEAL_EXTRA_CSS: ../../02_css/local.css
 
 #+Title: Bitcoin 
-#+Author: EIn Blick hinter die Kulissen
-#+Date: Artiom Blionovas, Marten Budelmann
+#+Author: Ein Blick hinter die Kulissen
+#+Date: Artiom Blionovas, Marten Budelmann, Daniel Hilgert
 
 * Realisierung
 - Nutzung der REST APIs von:
@@ -33,7 +33,7 @@
 ** Wiederverwendung von Adressen
 - Adressen möglichst nicht wiederverwenden ("bitcoin invoice" anstatt
   "bitcoin address")
-- Verwendung von Deterministischen Wallets mit Seed Phrase
+- Verwendung von deterministischen Wallets mit Seed phrase
 ** Change Adressen
 #+CAPTION: Change Adressen
 [[./bilder/change_address.png]]
@@ -45,29 +45,30 @@ necessarily reveal that their inputs were owned by the same owner.
 #+END_QUOTE
 #+CAPTION: Change Adressen
 [[./bilder/cashflow_old.png]]
-** Beispiel
 
 * Transaction Fees
-** Vorhersage der Fee per Byte
+** Vorhersage der Gebühren pro Byte
 - Transaktion Kosten pro Byte
 - Median und Interquartilsabstand
 - Approximation mit linearer Regression
+#+CAPTION: Vorhersage Gebühren pro Byte
 [[./bilder/txfee.png]]
 ** Zusammenhang zwischen Größe und Kosten einer Transaktion
-- Alle Transaktionen in den letzten 50 Blöcken nach Größe in Kategorisieren zuordnen
-- Anteil von Transaktionen in %, Fee per Byte, Bestätigungszeit
-- Ergebnis: Fee per Byte hängt ein wenig von der Größe ab aber nicht signifikant
-- Mögliche Erklärung: Miner versuchen die Blöcke möglich dicht zu Befüllen
+- Alle Transaktionen der letzten 50 Blöcken nach Größe kategoriesieren
+- Anteil von Transaktionen in %, Gebühren pro Byte, Bestätigungszeit
+- Ergebnis: Gebühren pro Byte hängt gerin von der Größe ab, aber nicht signifikant
+- Mögliche Erklärung: Miner versuchen die Blöcke möglichst dicht zu befüllen
 
 * Front/Backend
-** Flask
-- schnelles Prototyping
-- für ein kleines Projekt vollkommen ausreichend
+- Flask
+  - schnelles Prototyping
+  - für ein kleines Projekt vollkommen ausreichend
 
 * Probleme
-- Statuscode 429, API Timeouts
-- Effizienz bei Verarbeitung von großen Datenmengen
-- einbingen vom Code mit Backend
+- Statuscode 429
+- Verbesserung der Anonymität
+- Effizienz bei der Verarbeitung von großen Datenmengen
+- Verbindung Front-/Backend
 
 Live Demo
 
@@ -75,13 +76,9 @@ Live Demo
 - Blockchain/Mempool herunterladen
 - Einbezug vom Mempool in die Statistik
 - Bigdata
-- Fee free transaction: IOTA und andere
+- Transkationen ohne Gebühren: IOTA und andere
 - Layer 2: Bitcoin Lightning Network und andere
-- Deterministische Wallets
 ** Geldfluss Analyse
 #+CAPTION: Anonymitäts Analyse von Reid und Harrigan, 2012
 [[./bilder/analyse.png]]
 - Chainalysis: Unternehmen, welches sich auf die Bitcoin Analyse spezialisiert hat
-** Transaction Fees
-#+CAPTION: Meldung tagesschau
-[[./bilder/tesla.png]]
