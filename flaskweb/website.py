@@ -8,8 +8,5 @@ sys.path.insert(0, pathTo)
 sys.path.insert(0, artiDir)
 sys.path.insert(0, martenDir)
 print(sys.path)
-from blockTxInfos import BlockInfos
-data = BlockInfos(300)
-print(data.getAvgPpbSize())
 
 from app import app

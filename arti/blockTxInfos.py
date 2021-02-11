@@ -1,4 +1,5 @@
 from blockchainData import BlockchainData
+import os,sys
 class BlockInfos:
     __averageTxSize = {}
     __averageTxSizeProc = {}
@@ -189,7 +190,7 @@ class BlockInfos:
 
         self.__avgTimeToConf = self.__computeAvgConfTimePerBin(txHistBinLabels)
 
-        txSelectedSize = self.__getTxSelectedBin(txHistBinLabels,2)
+        #txSelectedSize = self.__getTxSelectedBin(txHistBinLabels,2)
     def __statistics(self):
         y_val = self.__averageTxSize.values()
         x_keys = self.__averageTxSize.keys()
@@ -203,6 +204,7 @@ class BlockInfos:
         return self.__averagePpbSize
     def getAverageTimeToConf(self):
         return self.__avgTimeToConf
+        #self.blocksPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ),'blocks'))
     #die methode liefert zum einen daten einer histogram und zum andern
     #die indizen von den datenpunkten die sich in den bins befinden damit man dieser wieder zuordnen kann
     # ruckgabe binGen,indizen von Daten die in den jeweiligen bins drin sind

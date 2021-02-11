@@ -10,6 +10,9 @@ class BlockchainData:
         butils = BlockUtils()
         return butils.getBlock()
     def __parseData(self):
+        self.txs = []
+        self.sizes = []
+        self.fees = []
         #alt[0] ----> neu[-1]
         #transaction data
         self.txs=[block.transactions for block in self.blocks]

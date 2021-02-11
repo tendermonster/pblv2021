@@ -4,8 +4,9 @@ from testClass import Test
 import sys
 from blockTxInfos import BlockInfos
 from testClass import Test
-data = BlockInfos(300)
-testData = Test(123)
+from blockutils import BlockUtils
+from estimatedFees import FeeEstimation
+from blockTxInfos import BlockInfos
 @app.route('/')
 @app.route('/index')
 def index():
@@ -19,10 +20,10 @@ def track():
 
 @app.route('/stats')
 def stats():
-    test1 = Test(123)
-    title="Home"
-    someData = data.getAvgPpbSize()
-    testData = Test(123)
+    fees = FeeEstimation()
+    print(fees.getFeeAvg())
+    blockStuff = BlockInfos(300)
+    print(blockStuff.getAvgPpbSize())
     return render_template('stats.html',**locals())
 
 @app.route('/track', methods=['POST'])
