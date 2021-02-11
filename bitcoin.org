@@ -43,7 +43,7 @@ Some linking is still unavoidable with multi-input transactions, which
 necessarily reveal that their inputs were owned by the same owner. 
 (Nakamoto 2008)
 #+END_QUOTE
-#+CAPTION: Change Adressen
+#+CAPTION: Verfolgung des Geldflusses
 [[./bilder/cashflow_old.png]]
 
 * Transaction Fees
@@ -70,15 +70,17 @@ necessarily reveal that their inputs were owned by the same owner.
 - Effizienz bei der Verarbeitung von großen Datenmengen
 - Verbindung Front-/Backend
 
-Live Demo
+* Live Demo
 
 * Ausblick
 - Blockchain/Mempool herunterladen
 - Einbezug vom Mempool in die Statistik
 - Bigdata
-- Transkationen ohne Gebühren: IOTA und andere
+- Transaktionen ohne Gebühren: IOTA und andere
 - Layer 2: Bitcoin Lightning Network und andere
 ** Geldfluss Analyse
 #+CAPTION: Anonymitäts Analyse von Reid und Harrigan, 2012
 [[./bilder/analyse.png]]
 - Chainalysis: Unternehmen, welches sich auf die Bitcoin Analyse spezialisiert hat
+
+* Fragen?
