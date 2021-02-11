@@ -1,7 +1,6 @@
 #reading in data
 from blockchain import blockexplorer
 from blockutils import BlockUtils
-from blockchainData import BlockchainData
 import numpy as np
 #estimation
 import itertools
@@ -28,8 +27,8 @@ class FeeEstimation:
     #median + iqr and median -iqr
     __mpiqr = []
     __mmpiqr = []
-    def __init__(self):
-        data = BlockchainData()
+    def __init__(self,blockChainData):
+        data = blockChainData
         self.__txs = data.txs
         self.__fees = data.fees
         self.__sizes = data.sizes

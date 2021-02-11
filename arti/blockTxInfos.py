@@ -1,12 +1,12 @@
-from blockchainData import BlockchainData
 import os,sys
+#please probide the BlockchainData glass. it helps reuse memory
 class BlockInfos:
     __averageTxSize = {}
     __averageTxSizeProc = {}
     __averagePpbSize = {}
     __avgTimeToConf = {}
-    def __init__(self,binWidth):
-        self.__data = BlockchainData()
+    def __init__(self,binWidth,blockChainData):
+        self.__data = blockChainData
         self.__binWidth = binWidth
         self.__txs = self.__data.txs
         self.__sizes = self.__data.sizes
@@ -190,7 +190,6 @@ class BlockInfos:
 
         self.__avgTimeToConf = self.__computeAvgConfTimePerBin(txHistBinLabels)
 
-        #txSelectedSize = self.__getTxSelectedBin(txHistBinLabels,2)
     def __statistics(self):
         y_val = self.__averageTxSize.values()
         x_keys = self.__averageTxSize.keys()
@@ -202,7 +201,7 @@ class BlockInfos:
         return self.__averageTxSizeProc
     def getAvgPpbSize(self):
         return self.__averagePpbSize
-    def getAverageTimeToConf(self):
+    def getAvgTimeToConf(self):
         return self.__avgTimeToConf
         #self.blocksPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ),'blocks'))
     #die methode liefert zum einen daten einer histogram und zum andern
